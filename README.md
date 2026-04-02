@@ -1,120 +1,149 @@
 # Humanizer
 
-**Sameer Sontakey's opinionated anti-AI writing system** for Claude Code and OpenCode.
+Humanizer is an opinionated writing skill for Claude Code and OpenCode.
 
-Most "humanize this" prompts do one of two bad things:
-- they barely change the text, so it still sounds like ChatGPT wearing loafers
-- or they overcorrect into fake personality, fake grit, and weird LinkedIn-guy prose
+It takes AI-shaped prose and rewrites it so it sounds like a person wrote it on purpose.
 
-This repo exists to do the opposite.
+That is the whole point.
 
-It is a practical writing skill for taking AI-shaped text and making it sound like it came from a real person with taste, judgment, and an actual point of view.
+Most AI writing is not bad because it is ungrammatical. It is bad because it sounds like nobody made any choices. The sentences are smooth, but dead. The transitions are clean, but generic. The tone is polished, but synthetic. The structure feels like a model performing usefulness.
 
-## What it does
+Humanizer exists to fix that.
 
-Humanizer helps remove the tells that make writing feel generated:
+## What this repo is based on
+
+This repo builds on the original humanizer skill and pushes it further in a more opinionated direction.
+
+The original repo was already useful because it treated AI writing as a pattern-recognition problem, not just a vocabulary cleanup problem. It focused on recurring tells such as:
 - inflated significance
-- canned profundity
-- AI vocabulary clusters
-- overexplained transitions
-- tutorial voice
-- fake suspense
-- em dash addiction
-- listicle formatting residue
-- chatbot pleasantries
-- vague authority gestures
-- generic upbeat conclusions
-- rhetorical tropes that feel statistically assembled instead of genuinely written
+- vague attribution
+- trailing `-ing` analysis that says nothing
+- ornate or promotional language
+- AI-heavy vocabulary clusters
+- formulaic transitions and conclusions
+- formatting residue from chatbot output
 
-It does **not** try to turn every piece of writing into casual banter.
+That core idea is still right. Good editing is not just replacing a few suspicious words. It is noticing when the prose performs depth instead of delivering it.
 
-The goal is not "sound quirky." The goal is **sound real**.
+This version keeps that foundation and adds a harder edge.
 
-## Why this is better
+## What was added from the tropes references
 
-Most anti-AI writing guides stop at surface cleanup.
+A lot of AI writing does not only sound generic. It also sounds theatrically AI.
 
-This one goes further:
+That is where the tropes references helped.
 
-### 1. It treats AI writing as a pattern problem, not a word-replacement problem
-It does not just swap out a few obvious phrases. It targets the deeper habits that make text feel machine-generated: rhythm, padding, rhetorical staging, fake depth, and synthetic certainty.
+The tropes material, especially the writing patterns collected in the referenced gist from tropes.fyi, is useful because it names the rhetorical habits models fall into when they try too hard to sound sharp, profound, or dramatic.
 
-### 2. It combines two useful lenses
-This skill merges:
-- **Wikipedia / WikiProject AI Cleanup** style signals, which are great for factual and structural cleanup
-- **tropes.fyi** style rhetorical signals, which are great for catching the smug, dramatic, over-signposted patterns LLMs fall into
+Those patterns include:
+- negative parallelism like `It's not X. It's Y.`
+- dramatic countdowns like `Not this. Not that. This.`
+- self-posed rhetorical questions like `The result? Disaster.`
+- repeated sentence openings
+- false suspense transitions like `Here's the kicker`
+- patronizing analogy setups like `Think of it as...`
+- fake vulnerability and polished self-awareness
+- inflated stakes for narrow points
+- listicles disguised as prose
+- em dash abuse and other visible AI formatting habits
 
-That combination matters. A lot of AI writing is not wrong at the sentence level. It is wrong at the *performance* level.
+These are not just stylistic quirks. They create a very specific kind of fake intensity that now reads as machine-generated to anyone who spends time around model output.
 
-### 3. It preserves voice instead of flattening everything
-If you provide a writing sample, the skill is supposed to match your real cadence and habits instead of imposing generic "clean prose."
+Humanizer uses those references to catch the rhetorical layer, not just the lexical layer.
 
-### 4. It is opinionated about what bad AI writing actually looks like
-This is not neutral. It has taste.
+## What Humanizer actually does
 
-It assumes bad AI writing often looks like:
-- padded
-- overconfident
-- emotionally synthetic
-- theatrically structured
-- allergic to plain verbs
-- addicted to telling you why something matters instead of showing you
+Humanizer is designed to do four things well:
 
-### 5. It includes a final anti-AI audit pass
-The skill explicitly asks:
-1. **What makes the below so obviously AI generated?**
-2. **Now make it not obviously AI generated.**
+### 1. Remove obvious AI tells
+It catches the common markers that make prose feel generated, including vocabulary choices, sentence templates, weak transitions, and fake analysis.
 
-That second pass catches a lot of residue the first pass misses.
+### 2. Preserve meaning
+It should not hallucinate facts, invent anecdotes, or add fake specificity just to sound more human.
 
-## Who this is for
+### 3. Preserve voice
+If you give it a writing sample, it should move toward your cadence and habits instead of flattening everything into generic "good writing."
 
-This skill is especially good for:
-- founder writing
-- executive updates
-- internal memos
-- customer-facing copy
-- essays
-- strategic docs
-- technical explanations that still need to sound like a person wrote them
-- rewrites of model-generated drafts before they leave your machine
+### 4. Improve judgment, not just surface polish
+The real goal is not to make the writing more decorative. The goal is to make it sound like someone made decisions.
 
-## What’s in the skill
+## What makes this different
 
-The current version includes a structured pattern library covering:
+A lot of "humanizer" tools are really just one of these two things:
+- synonym replacers
+- personality injectors
+
+Both fail.
+
+Synonym replacement leaves the structure intact, so the prose still sounds generated.
+
+Personality injection often makes things worse. It replaces AI stiffness with fake swagger, fake grit, or LinkedIn-guy energy.
+
+Humanizer is different because it is built around judgment:
+- what should stay
+- what should go
+- what should be simplified
+- what should be said directly
+- what should not be made more dramatic than it is
+
+That is closer to real editing.
+
+## Design principles
+
+Humanizer assumes a few things:
+
+### AI writing usually fails at the performance layer
+A sentence can be technically fine and still feel fake.
+
+### Fake depth is one of the biggest tells
+A lot of AI prose keeps explaining why something matters instead of simply saying something concrete.
+
+### Plain verbs are underrated
+Models dodge `is`, `has`, and other simple constructions because they are optimizing for variation. Humans use plain language when it is the clearest option.
+
+### Rhythm matters
+A piece can fail because every sentence lands with the same cadence, the same structure, or the same kind of emphasis.
+
+### Restraint matters
+Not every paragraph needs a reveal, a twist, a contrast, or a grand conclusion.
+
+## What the skill covers
+
+The skill currently covers patterns like:
 - significance inflation
 - fake depth via trailing `-ing` phrases
 - promotional language
 - vague attribution
-- copula avoidance (`serves as`, `stands as`, `boasts`)
+- copula avoidance
 - passive voice and subjectless fragments
 - rule-of-three overuse
 - false ranges
 - synonym cycling
-- hyphenated word pair overuse
-- the "It's not X. It's Y." reframe
+- hyphenated word-pair overuse
+- negative parallelism
 - dramatic countdowns
-- rhetorical questions used as suspense
+- rhetorical question reveals
 - repeated sentence openings
 - false suspense transitions
 - persuasive authority tropes
 - stakes inflation
 - simulated self-awareness
-- invented compound labels
-- staccato fragments
+- invented concept labels
+- staccato fragment abuse
 - circular padding
 - chatbot pleasantries
-- knowledge-cutoff disclaimers
 - signposting and tutorial voice
 - pedagogical analogies
-- generic conclusions
-- formatting tells like em dashes, bold-label lists, emojis, arrows, and title-case headings
+- generic positive conclusions
+- em dash addiction
+- bold-first bullet formatting
+- unicode decoration and other visible output residue
 
 ## Example
 
 ### Before
 
-> Great question! Here's what you need to know.
+> Great question. Here's what you need to know.
 >
 > AI-assisted coding represents a pivotal shift in the evolving landscape of software development, highlighting the transformative potential of these groundbreaking tools. It's not just about speed, it's about unlocking creativity, fostering alignment, and ensuring organizations can remain agile in an increasingly complex environment.
 >
@@ -128,7 +157,19 @@ The current version includes a structured pattern library covering:
 >
 > They're useful. They're not magic.
 
-## Installation
+## Who this is for
+
+Humanizer is especially useful for:
+- founder writing
+- executive updates
+- internal memos
+- customer-facing copy
+- essays
+- strategic documents
+- technical writing that still needs a human voice
+- any draft that started with AI and needs to survive contact with smart readers
+
+## How to use it
 
 ### Claude Code
 
@@ -144,59 +185,51 @@ mkdir -p ~/.config/opencode/skills
 git clone https://github.com/sontakey/humanizer.git ~/.config/opencode/skills/humanizer
 ```
 
-> OpenCode can also read skills from `~/.claude/skills`, so one install there may be enough.
+Then invoke it with a draft, or with a draft plus a voice sample.
 
-## Usage
-
-### Basic
+### Basic prompt
 
 ```text
 /humanizer
 
-[paste text]
+[paste draft]
 ```
 
-Or:
-
-```text
-Please humanize this text: [text]
-```
-
-### Voice match mode
+### Voice match prompt
 
 ```text
 /humanizer
 
-Here's a sample of my writing for voice matching:
-[paste 2-3 paragraphs of your own writing]
+Here is a sample of my writing:
+[paste sample]
 
-Now humanize this:
-[paste text]
+Now rewrite this in my voice:
+[paste draft]
 ```
 
-### High-stakes rewrite
+### High-stakes pass
 
 ```text
 /humanizer
 
-This is customer-facing copy. Do a full humanize pass, then run the anti-AI audit and give me the final version only.
+This is customer-facing. Do a full humanize pass, run the anti-AI audit, and give me the final version only.
 
-[paste text]
+[paste draft]
 ```
 
-## Design philosophy
+## Philosophy in one line
 
-A lot of AI writing is competent in the most dangerous way possible.
+The job is not to make AI writing quirky.
 
-It is grammatical. It is smooth. It is polished. And it is dead.
+The job is to make it sound real.
 
-Dead writing is usually not broken at the sentence level. It is broken at the judgment level. It sounds like nobody chose anything. The sentences feel statistically assembled. The emphasis is fake. The transitions are canned. The voice is generic. The structure feels like a model trying to look useful.
+## Sources and lineage
 
-That is what this skill is designed to catch.
-
-## Version
-
-**Current version:** `3.0.0`
+This repo is informed by:
+- the original humanizer skill structure and anti-AI editing approach
+- Wikipedia's "Signs of AI writing" and related cleanup guidance
+- tropes.fyi pattern observations
+- the tropes reference gist by ossa-ma: <https://gist.github.com/ossa-ma/f3baa9d25154c33095e22272c631f5a1>
 
 ## License
 
